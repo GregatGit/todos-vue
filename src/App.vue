@@ -23,6 +23,7 @@ export default {
   },
   methods: {
     addNewTodo: function(todo){
+      if (todo === '' || todo == null) return
       this.todos.push({name: todo, done: false})
     }
   },
