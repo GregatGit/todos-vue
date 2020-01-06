@@ -36,7 +36,7 @@ export default {
       this.todos = newTodos
     },
     completeTodo: function(index){
-      this.todos[index].done = true
+      this.todos[index].done = !this.todos[index].done
     }
   },
   components: {
