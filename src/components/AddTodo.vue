@@ -14,7 +14,7 @@
         size="25"
         placeholder="new task"
       />
-      <button type="submit" >Submit</button>
+      <button type="submit">Submit</button>
     </form>
   </div>
 </template>
@@ -24,16 +24,16 @@ export default {
   name: 'add-todo',
   data() {
     return {
-      todo: ''
+      todo: '',
     }
   },
   methods: {
-    handleSubmit: function(){
-      let newTodo = this.todo
+    handleSubmit: function() {
+      let newTodo = this.todo.trim()
       this.todo = ''
       this.$emit('addNewTodo', newTodo)
-    }
-  }
+    },
+  },
 }
 </script>
 

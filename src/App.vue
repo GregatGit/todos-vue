@@ -15,6 +15,8 @@ import Header from './components/Header'
 import TodoList from './components/TodoList'
 import AddTodo from './components/AddTodo'
 
+import { nameFree } from './helpers'
+
 export default {
   name: 'app',
   data: function() {
@@ -27,7 +29,11 @@ export default {
   },
   methods: {
     addNewTodo: function(todo){
-      if (todo === '' || todo == null) return
+      //if (todo === '' || todo == null) return
+      
+      const check = nameFree(todo, this.todos)
+      if (!check) return
+
       this.todos.push({name: todo, done: false})
     },
     deleteTodo: function(index){
