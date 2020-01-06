@@ -5,7 +5,10 @@
       <li 
         v-for="(todo, index) in todos"
         :key="index"
-      >{{todo.name}}</li>
+      >{{todo.name}}
+      <button>DONE</button>
+      <button @click="$emit('deleteTodo', index)" >DELETE</button>
+      </li>
     </ul>
     <hr>
   </div>

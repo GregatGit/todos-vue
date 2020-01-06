@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <Header />
-    <todo-list :todos="todos" />
+    <todo-list 
+      :todos="todos"
+      @deleteTodo="deleteTodo"
+    />
     <add-todo @addNewTodo="addNewTodo" />
   </div>
 </template>
@@ -25,6 +28,11 @@ export default {
     addNewTodo: function(todo){
       if (todo === '' || todo == null) return
       this.todos.push({name: todo, done: false})
+    },
+    deleteTodo: function(index){
+      const newTodos = [...this.todos]
+      newTodos.splice(index, 1)
+      this.todos = newTodos
     }
   },
   components: {
