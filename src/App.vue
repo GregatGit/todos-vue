@@ -4,6 +4,7 @@
     <todo-list 
       :todos="todos"
       @deleteTodo="deleteTodo"
+      @completeTodo="completeTodo"
     />
     <add-todo @addNewTodo="addNewTodo" />
   </div>
@@ -33,6 +34,9 @@ export default {
       const newTodos = [...this.todos]
       newTodos.splice(index, 1)
       this.todos = newTodos
+    },
+    completeTodo: function(index){
+      this.todos[index].done = true
     }
   },
   components: {

@@ -5,8 +5,10 @@
       <li 
         v-for="(todo, index) in todos"
         :key="index"
+        class=""
+        :class="{myStyle: todo.done}"
       >{{todo.name}}
-      <button>DONE</button>
+      <button @click="$emit('completeTodo', index)">DONE</button>
       <button @click="$emit('deleteTodo', index)" >DELETE</button>
       </li>
     </ul>
@@ -21,5 +23,7 @@
   }
 </script>
 <style lang="scss" scoped>
-
+.myStyle {
+  text-decoration: line-through;
+}
 </style>
