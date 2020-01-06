@@ -2,12 +2,14 @@
   <div id="app">
     <Header />
     <todo-list :todos="todos" />
+    <add-todo @addNewTodo="addNewTodo" />
   </div>
 </template>
 
 <script>
 import Header from './components/Header'
 import TodoList from './components/TodoList'
+import AddTodo from './components/AddTodo'
 
 export default {
   name: 'app',
@@ -19,9 +21,15 @@ export default {
       ],
     }
   },
+  methods: {
+    addNewTodo: function(todo){
+      this.todos.push({name: todo, done: false})
+    }
+  },
   components: {
     Header,
-    TodoList
+    TodoList,
+    AddTodo
   },
 }
 </script>

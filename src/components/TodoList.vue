@@ -7,6 +7,7 @@
         :key="index"
       >{{todo.name}}</li>
     </ul>
+    <hr>
   </div>
 </template>
 
