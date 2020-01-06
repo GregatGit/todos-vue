@@ -5,7 +5,6 @@
       <li 
         v-for="(todo, index) in todos"
         :key="index"
-        class=""
         :class="{myStyle: todo.done}"
       >{{todo.name}}
       <button @click="$emit('completeTodo', index)">DONE</button>
