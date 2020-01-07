@@ -5,7 +5,7 @@
       <li 
         v-for="(todo, index) in todos"
         :key="index"
-        class="list-group-item"
+        class="list-group-item d-flex justify-content-between align-items-center"
         :class="{myStyle: todo.done}"
       >{{todo.name}}
       <font-awesome-icon
