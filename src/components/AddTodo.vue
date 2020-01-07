@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>Add Task</h3>
+    <h3>Add Task <font-awesome-icon icon="plus-square" size="lg"/></h3>
     <form @click.prevent="handleSubmit">
       <label for="name">Task (3 to 25 chars):</label>
       <input
@@ -14,18 +14,22 @@
         size="25"
         placeholder="new task"
       />
-      <button type="submit">Submit</button>
+      <button type="submit"><font-awesome-icon icon="plus-square" size="lg" /></button>
     </form>
   </div>
 </template>
 
 <script>
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 export default {
   name: 'add-todo',
   data() {
     return {
       todo: '',
     }
+  },
+  components: {
+    FontAwesomeIcon
   },
   methods: {
     handleSubmit: function() {
@@ -37,4 +41,5 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+</style>
