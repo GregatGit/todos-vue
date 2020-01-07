@@ -2,8 +2,11 @@
 
 After following along vue tutorials this is my first practice at a vue app
 
-## verson 2 
-use vuex to handle state management
+## version 3
+add stylings and icons
+
+## version 2 
+use vuex to handle state management - complete
 
 ## version 1
 basic vue todo app - complete
