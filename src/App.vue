@@ -3,7 +3,6 @@
     <Header />
     <todo-list 
       :todos="todos"
-      @deleteTodo="deleteTodo"
       @completeTodo="completeTodo"
     />
     <add-todo @addNewTodo="addNewTodo" />
@@ -28,9 +27,6 @@ export default {
       const check = nameFree(todo, this.todos)
       if (!check) return
       this.$store.dispatch('addTodo', todo)
-    },
-    deleteTodo: function(index){
-      this.$store.dispatch('deleteTodo', index)
     },
     completeTodo: function(index){
       this.$store.dispatch('completedTodo', index)
