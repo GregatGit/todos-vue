@@ -33,7 +33,7 @@ export default {
       this.$store.dispatch('deleteTodo', index)
     },
     completeTodo: function(index){
-      this.todos[index].done = !this.todos[index].done
+      this.$store.dispatch('completedTodo', index)
     }
   },
   components: {

@@ -16,9 +16,17 @@ export default new Vuex.Store({
     },
     ADD_TODO(state, payload) {
       state.todos = payload
+    },
+    COMPLETED_TODO(state, payload){
+      state.todos = payload
     }
   },
   actions: {
+    completedTodo({ commit }, payload){
+      const newTodos = [...this.state.todos]
+      newTodos[payload].done = !newTodos[payload].done
+      commit('COMPLETED_TODO',  newTodos)
+    },
     addTodo({ commit }, payload){
       const newTodos = [...this.state.todos]
       newTodos.push({name: payload, done: false})
