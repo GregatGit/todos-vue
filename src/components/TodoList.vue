@@ -7,7 +7,7 @@
         :key="index"
         :class="{myStyle: todo.done}"
       >{{todo.name}}
-      <button  @click="$emit('completeTodo', index)">DONE</button>
+      <button  @click="$store.dispatch('completedTodo', index)">DONE</button>
       <button @click="$store.dispatch('deleteTodo', index)" >DELETE</button>
       </li>
     </ul>

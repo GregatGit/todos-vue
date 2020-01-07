@@ -1,10 +1,7 @@
 <template>
   <div id="app">
     <Header />
-    <todo-list 
-      :todos="todos"
-      @completeTodo="completeTodo"
-    />
+    <todo-list :todos="todos" />
     <add-todo @addNewTodo="addNewTodo" />
   </div>
 </template>
@@ -27,9 +24,6 @@ export default {
       const check = nameFree(todo, this.todos)
       if (!check) return
       this.$store.dispatch('addTodo', todo)
-    },
-    completeTodo: function(index){
-      this.$store.dispatch('completedTodo', index)
     }
   },
   components: {
