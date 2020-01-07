@@ -20,25 +20,14 @@ import { mapState } from 'vuex'
 
 export default {
   name: 'app',
-  // data: function() {
-  //   return {
-  //     todos: [
-  //       { name: 'walk dog', done: false },
-  //       { name: 'build app', done: false },
-  //     ],
-  //   }
-  // },
   computed: {
     ...mapState(['todos'])
   },
   methods: {
     addNewTodo: function(todo){
-      //if (todo === '' || todo == null) return
-      
       const check = nameFree(todo, this.todos)
       if (!check) return
-
-      this.todos.push({name: todo, done: false})
+      this.$store.dispatch('addTodo', todo)
     },
     deleteTodo: function(index){
       this.$store.dispatch('deleteTodo', index)
