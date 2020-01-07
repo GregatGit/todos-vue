@@ -16,16 +16,20 @@ import TodoList from './components/TodoList'
 import AddTodo from './components/AddTodo'
 
 import { nameFree } from './helpers'
+import { mapState } from 'vuex'
 
 export default {
   name: 'app',
-  data: function() {
-    return {
-      todos: [
-        { name: 'walk dog', done: false },
-        { name: 'build app', done: false },
-      ],
-    }
+  // data: function() {
+  //   return {
+  //     todos: [
+  //       { name: 'walk dog', done: false },
+  //       { name: 'build app', done: false },
+  //     ],
+  //   }
+  // },
+  computed: {
+    ...mapState(['todos'])
   },
   methods: {
     addNewTodo: function(todo){
@@ -37,9 +41,7 @@ export default {
       this.todos.push({name: todo, done: false})
     },
     deleteTodo: function(index){
-      const newTodos = [...this.todos]
-      newTodos.splice(index, 1)
-      this.todos = newTodos
+      this.$store.dispatch('deleteTodo', index)
     },
     completeTodo: function(index){
       this.todos[index].done = !this.todos[index].done
