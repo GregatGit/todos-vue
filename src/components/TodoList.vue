@@ -33,6 +33,6 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 <style lang="scss" scoped>
 .myStyle {
   text-decoration: line-through;
-  background-color: rgb(109, 204, 204);
+  background-color: rgb(68, 146, 211);
 }
 </style>
