@@ -7,11 +7,8 @@
         :key="index"
         class="list-group-item d-flex justify-content-between align-items-center"
         :class="{myStyle: todo.done}"
-      >{{todo.name}}
-      <font-awesome-icon
-        icon="check-circle"
         @click="$store.dispatch('completedTodo', index)"
-      />
+      >{{todo.name}}
       <font-awesome-icon 
         icon="trash"
         @click="$store.dispatch('deleteTodo', index)" 
@@ -36,5 +33,6 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 <style lang="scss" scoped>
 .myStyle {
   text-decoration: line-through;
+  background-color: rgb(109, 204, 204);
 }
 </style>
