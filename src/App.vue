@@ -3,6 +3,7 @@
     <Header />
     <todo-list :todos="todos" />
     <add-todo @addNewTodo="addNewTodo" />
+    <Footer />
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 import Header from './components/Header'
 import TodoList from './components/TodoList'
 import AddTodo from './components/AddTodo'
+import Footer from './components/Footer'
 
 import { nameFree } from './helpers'
 import { mapState } from 'vuex'
@@ -29,7 +31,8 @@ export default {
   components: {
     Header,
     TodoList,
-    AddTodo
+    AddTodo,
+    Footer
   },
 }
 </script>
