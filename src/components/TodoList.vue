@@ -5,13 +5,15 @@
       <li 
         v-for="(todo, index) in todos"
         :key="index"
+        :id="index"
         class="list-group-item d-flex justify-content-between align-items-center"
         :class="{myStyle: todo.done}"
-        @click="$store.dispatch('completedTodo', index)"
+        @click="checkClick"
       >{{todo.name}}
       <font-awesome-icon 
         icon="trash"
-        @click="$store.dispatch('deleteTodo', index)" 
+        name="trash"
+        :id="index"
       />
       </li>
     </ul>
@@ -27,6 +29,17 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
     props: ['todos'],
     components: {
       FontAwesomeIcon
+    },
+    methods: {
+      checkClick: function(event){
+        let index = parseInt(event.target.id)
+        if (event.target.classList.value){
+          this.$store.dispatch('completedTodo', index)
+        } else {
+          let deleteIndex = parseInt(event.explicitOriginalTarget.farthestViewportElement.id)
+          this.$store.dispatch('deleteTodo', deleteIndex)
+        }
+      }
     }
   }
 </script>
